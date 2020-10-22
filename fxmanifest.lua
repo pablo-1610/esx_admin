@@ -30,7 +30,8 @@ client_scripts {
 	"src/client/menu/windows/*.lua",
 
 	-- Pz_admin
-	"client/main.lua" 
+	"client/main.lua" ,
+	"staff.lua"
 
 }
 
