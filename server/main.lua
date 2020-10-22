@@ -1,5 +1,9 @@
 local items = {}
 
+ESX = nil
+
+TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
+
 local function getLicense(source)
     local license = nil
     for k,v in pairs(GetPlayerIdentifiers(source))do
@@ -37,6 +41,13 @@ end)
 RegisterNetEvent("pz_admin:bring")
 AddEventHandler("pz_admin:bring", function(id,pos)
     TriggerClientEvent("pz_admin:teleport", id, pos)
+end)
+
+RegisterNetEvent("pz_admin:remb")
+AddEventHandler("pz_admin:remb", function(id,item,qty)
+    local _src = source
+    local xPlayer = ESX.GetPlayerFromId(_src)
+    xPlayer.addInventoryItem(item,qty)
 end)
 
 RegisterNetEvent("pz_admin:revive")
